@@ -12,7 +12,7 @@ Here's the rules:
 - `functionA` = lowerPascalCase
 - `TypeA` = PascalCase, for typedefs, enum types and module names
 - macro names should mimic the data type they expand to.
-> e.g. `S8()` is a macro that instantiates an `S8` type)
+> e.g. `S8()` is a macro that instantiates an `S8` type
 - symbols are namespaced to modules with the following format:
 	- public: `<odule>_<type>_<symbol>`
 	- private: `__<module>_<type>_<symbol>`
@@ -40,4 +40,10 @@ I typically define a `zeroStruct` macro that uses a memset
 This way, we get to seperate concerns during developments and we get a simple
 distribution format that can act as both a single-header library (just include
 the source file in another one) or as another translation unit.
+- Libraries should not allocate. Instead, request a buffer and its size from the user
+	- This doesn't apply to modules within programs.
+- If a library does need to allocate, request an [good allocator interface](https://nullprogram.com/blog/2023/12/17/)
+from the user and define a default malloc implementation that can be toggled on.
 
+# LICENSE
+Not sure if this matters, but this document is public domain or CC0.
