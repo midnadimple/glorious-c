@@ -14,8 +14,8 @@ Here's the rules:
 - macro names should mimic the data type they expand to.
 > e.g. `S8()` is a macro that instantiates an `S8` type)
 - symbols are namespaced to modules with the following format:
-public: `<odule>_<type>_<symbol>`
-private: `__<module>_<type>_<symbol>`
+	- public: `<odule>_<type>_<symbol>`
+	- private: `__<module>_<type>_<symbol>`
 - modules names are all lowercase with no underscores and should preferably be one word.
 > e.g. `mem`, `parse`, `engine`
 - enum names should try to have the word `Kind`, then their names should increase precision.
@@ -38,4 +38,5 @@ I typically define a `zeroStruct` macro that uses a memset
 3. Distribute the library as the public header and the one source file.
 This way, we get to seperate concerns during developments and we get a simple
 distribution format that can act as both a single-header library (just include
+
 the source file in another one) or as another translation unit.
