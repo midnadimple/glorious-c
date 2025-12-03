@@ -36,7 +36,8 @@ I typically define a `zeroStruct` macro that uses a memset
 1. Write the code as a seperated module (see above)
 2. Use a shell script or small program to fuse the source files and internal headers into one source file.
 3. Distribute the library as the public header and the one source file.
+
 This way, we get to seperate concerns during developments and we get a simple
 distribution format that can act as both a single-header library (just include
-
 the source file in another one) or as another translation unit.
+
